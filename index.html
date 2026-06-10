@@ -830,12 +830,10 @@ document.getElementById('webinar-form').addEventListener('submit',function(e){
     })
   })
   .then(function(r){return r.json()})
-  .then(function(d){
-    if(d.success==='true'||d.success===true){
-      document.getElementById('form-wrap').style.display='none';
-      document.getElementById('form-success').style.display='block';
-      document.getElementById('register').scrollIntoView({behavior:'smooth'});
-    }else{throw new Error()}
+  .then(function(){
+    document.getElementById('form-wrap').style.display='none';
+    document.getElementById('form-success').style.display='block';
+    document.getElementById('register').scrollIntoView({behavior:'smooth'});
   })
   .catch(function(){
     btn.textContent='YES! SAVE MY FREE SEAT →';btn.classList.remove('loading');netErr.classList.add('on');
